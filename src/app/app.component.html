@@ -23,7 +23,7 @@
 
   <div class="ui-g">
     <div class="ui-g-12">
-      <p-table [value]="transactions" [paginator]="true" [rows]="2">
+      <p-table [value]="transactions" [paginator]="true" [rows]="2" [responsive]="true">
         <ng-template pTemplate="header">
           <tr>
             <th>Person</th>
@@ -31,7 +31,7 @@
             <th>Payment Due</th>
             <th>Payment Date</th>
             <th>Total</th>
-            <th class="col-action"></th>
+            <th></th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-transaction>
