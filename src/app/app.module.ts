@@ -8,11 +8,13 @@ import { TooltipModule } from 'primeng/tooltip'
 
 
 import { AppComponent } from './app.component';
+import { TransactionSearchComponent } from './transaction-search/transaction-search.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TransactionSearchComponent
   ],
   imports: [
     BrowserModule,
