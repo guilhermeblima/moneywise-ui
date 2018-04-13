@@ -38,9 +38,9 @@
             <tr>
               <td>{{transaction.person}}</td>
               <td>{{transaction.title}}</td>
-              <td class="col-date">{{transaction.paymentDue}}</td>
-              <td class="col-date">{{transaction.paymentDate}}</td>
-              <td class="col-total"><span [style.color]="transaction.type === 'DEPOSIT' ? 'blue' : 'red'">{{transaction.total}}</span></td>
+              <td class="col-date">{{transaction.paymentDue | date: 'dd/MM/y'}}</td>
+              <td class="col-date">{{transaction.paymentDate | date: 'dd/MM/y'}}</td>
+              <td class="col-total"><span [style.color]="transaction.type === 'DEPOSIT' ? 'blue' : 'red'">{{transaction.total | number}}</span></td>
               <td >
                 <button pButton icon="fa-pencil" pTooltip="Edit" tooltipPosition="top"></button>
                 <button pButton icon="fa-trash" pTooltip="Remove" tooltipPosition="top"></button>
