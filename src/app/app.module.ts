@@ -11,6 +11,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CalendarModule } from 'primeng/calendar';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { DropdownModule } from 'primeng/dropdown';
+import { InputMaskModule } from 'primeng/inputmask';
 
 import { CurrencyMaskModule } from "ng2-currency-mask";
 
@@ -20,6 +21,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PersonSearchComponent } from './person-search/person-search.component';
 import { TransactionFormComponent } from './transaction-form/transaction-form.component';
 import { PersonFormComponent } from './person-form/person-form.component';
+import { MessageComponent } from './message/message.component';
 
 
 
@@ -30,7 +32,8 @@ import { PersonFormComponent } from './person-form/person-form.component';
     NavBarComponent,
     PersonSearchComponent,
     TransactionFormComponent,
-    PersonFormComponent
+    PersonFormComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { PersonFormComponent } from './person-form/person-form.component';
     FormsModule,
     SelectButtonModule,
     DropdownModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    InputMaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]

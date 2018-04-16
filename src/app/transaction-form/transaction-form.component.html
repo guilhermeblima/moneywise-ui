@@ -20,12 +20,18 @@
 
       <div class="ui-g-9 ui-sm-12 ui-fluid">
         <label>Title</label>
-        <input type="text" pInputText>
+        <input type="text" pInputText name="title" #title="ngModel"
+          ngModel required minlength="5">
+
+        <app-message [control]="title" error="required"
+          message="A title is required"></app-message>
+        <app-message [control]="title" error="minlength"
+          message="Minimum of {{title.errors?.minlength?.requiredLength}} letters required"></app-message>  
       </div>
 
       <div class="ui-g-3 ui-sm-12 ui-fluid">
         <label>Total</label>
-        <input currencyMask pInputText [options]="{prefix: '', allowNegative: false}">
+        <input currencyMask pInputText name="total" [options]="{prefix: '', allowNegative: false}" ngModel>
       </div>
 
       <div class="ui-g-6 ui-sm-12 ui-fluid">
