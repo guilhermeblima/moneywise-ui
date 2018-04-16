@@ -19,6 +19,7 @@ import { TransactionSearchComponent } from './transaction-search/transaction-sea
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PersonSearchComponent } from './person-search/person-search.component';
 import { TransactionFormComponent } from './transaction-form/transaction-form.component';
+import { PersonFormComponent } from './person-form/person-form.component';
 
 
 
@@ -28,7 +29,8 @@ import { TransactionFormComponent } from './transaction-form/transaction-form.co
     TransactionSearchComponent,
     NavBarComponent,
     PersonSearchComponent,
-    TransactionFormComponent
+    TransactionFormComponent,
+    PersonFormComponent
   ],
   imports: [
     BrowserModule,
