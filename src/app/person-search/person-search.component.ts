@@ -13,12 +13,4 @@ export class PersonSearchComponent {
     {name: 'Bilbo Baggins', city: 'Middle-Earth', suburb: 'Shire', active: true },
   ];
 
-  cols = [
-    { field: 'name', header: 'Name' },
-    { field: 'city', header: 'City' },
-    { field: 'suburb', header: 'Suburb' },
-    { field: 'active', header: 'Active' },
-    { field: '', header: '' }
-];
-
 }

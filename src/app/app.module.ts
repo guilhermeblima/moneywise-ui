@@ -23,6 +23,7 @@ import { TransactionFormComponent } from './transaction-form/transaction-form.co
 import { PersonFormComponent } from './person-form/person-form.component';
 import { MessageComponent } from './message/message.component';
 import { TransactionTableComponent } from './transaction-table/transaction-table.component';
+import { PersonTableComponent } from './person-table/person-table.component';
 
 
 
@@ -35,7 +36,8 @@ import { TransactionTableComponent } from './transaction-table/transaction-table
     TransactionFormComponent,
     PersonFormComponent,
     MessageComponent,
-    TransactionTableComponent
+    TransactionTableComponent,
+    PersonTableComponent
   ],
   imports: [
     BrowserModule,
