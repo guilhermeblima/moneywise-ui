@@ -1,5 +1,5 @@
 <div class="container">
-  <form>
+  <form autocomplete="off" #form="ngForm">
     <div class="ui-g">
       <div class="ui-g-12">
         <h1>New Transaction</h1>
@@ -10,12 +10,20 @@
 
       <div class="ui-g-3 ui-sm-6 ui-fluid">
         <label>Payment due</label>
-        <p-calendar dateFormat="dd/mm/yy" [showIcon]=true></p-calendar>
+        <p-calendar dateFormat="dd/mm/yy" [showIcon]=true required name="paymentDue" 
+          ngModel #paymentDue="ngModel"></p-calendar>
+
+        <app-message [control]="paymentDue" error="required" 
+          message="Insert when the payment is due"></app-message>
       </div>
 
       <div class="ui-g-3 ui-sm-6 ui-fluid">
         <label>{{transaction.value === 'DEPOSIT' ? 'Deposit Date' : 'Withdrawal Date'}}</label>
-        <p-calendar dateFormat="dd/mm/yy" [showIcon]=true></p-calendar>
+        <p-calendar dateFormat="dd/mm/yy" [showIcon]=true name="paymentDate" 
+          ngModel #paymentDate="ngModel" required></p-calendar>
+
+        <app-message [control]="paymentDate" error="required" 
+          message="Insert when the payment was done"></app-message>
       </div>
 
       <div class="ui-g-9 ui-sm-12 ui-fluid">
@@ -31,21 +39,24 @@
 
       <div class="ui-g-3 ui-sm-12 ui-fluid">
         <label>Total</label>
-        <input currencyMask pInputText name="total" [options]="{prefix: '', allowNegative: false}" ngModel>
+        <input currencyMask pInputText name="total" [options]="{prefix: '', allowNegative: false}"
+           ngModel #total="ngModel" required>
+        <app-message [control]="total" error="required"
+        message="Insert the total"></app-message>   
       </div>
 
       <div class="ui-g-6 ui-sm-12 ui-fluid">
         <label>Category</label>
         <p-dropdown [options]="categories" [(ngModel)]="selectedCategory" 
           name="selectedCategory" [filter]="true" [autoWidth]="false" 
-          placeholder="Choose"></p-dropdown>
+          placeholder="Choose" required></p-dropdown>
       </div>
 
       <div class="ui-g-6 ui-sm-12 ui-fluid">
         <label>Person</label>
         <p-dropdown [options]="persons" [(ngModel)]="selectedPerson" 
           name="selectedPerson" [filter]="true" [autoWidth]="false" 
-          placeholder="Choose"></p-dropdown>
+          placeholder="Choose" required></p-dropdown>
       </div>
 
       <div class="ui-g-12 ui-sm-12 ui-fluid">
@@ -54,7 +65,7 @@
       </div>
       
       <div class="ui-g-12">
-        <button type="submit" label="Save" pButton></button>
+        <button type="submit" label="Save" pButton [disabled]="form.invalid"></button>
         <button type="button" label="New" pButton class="ui-button-info"></button>
         <a href="javascript:;">back to search page</a>
       </div>
