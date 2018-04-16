@@ -12,6 +12,8 @@ import { CalendarModule } from 'primeng/calendar';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { DropdownModule } from 'primeng/dropdown';
 
+import { CurrencyMaskModule } from "ng2-currency-mask";
+
 import { AppComponent } from './app.component';
 import { TransactionSearchComponent } from './transaction-search/transaction-search.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -39,7 +41,8 @@ import { TransactionFormComponent } from './transaction-form/transaction-form.co
     CalendarModule,
     FormsModule,
     SelectButtonModule,
-    DropdownModule
+    DropdownModule,
+    CurrencyMaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]
