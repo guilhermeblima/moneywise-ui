@@ -30,12 +30,16 @@
 
       <div class="ui-g-6 ui-sm-12 ui-fluid">
         <label>Category</label>
-        <input type="text" pInputText>
+        <p-dropdown [options]="categories" [(ngModel)]="selectedCategory" 
+          name="selectedCategory" [filter]="true" [autoWidth]="false" 
+          placeholder="Choose"></p-dropdown>
       </div>
 
       <div class="ui-g-6 ui-sm-12 ui-fluid">
         <label>Person</label>
-        <input type="text" pInputText>
+        <p-dropdown [options]="persons" [(ngModel)]="selectedPerson" 
+          name="selectedPerson" [filter]="true" [autoWidth]="false" 
+          placeholder="Choose"></p-dropdown>
       </div>
 
       <div class="ui-g-12 ui-sm-12 ui-fluid">

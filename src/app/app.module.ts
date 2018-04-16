@@ -10,6 +10,7 @@ import { TooltipModule } from 'primeng/tooltip'
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CalendarModule } from 'primeng/calendar';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { DropdownModule } from 'primeng/dropdown';
 
 import { AppComponent } from './app.component';
 import { TransactionSearchComponent } from './transaction-search/transaction-search.component';
@@ -37,7 +38,8 @@ import { TransactionFormComponent } from './transaction-form/transaction-form.co
     InputTextareaModule,
     CalendarModule,
     FormsModule,
-    SelectButtonModule
+    SelectButtonModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
