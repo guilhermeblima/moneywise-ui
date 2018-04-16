@@ -22,6 +22,7 @@ import { PersonSearchComponent } from './person-search/person-search.component';
 import { TransactionFormComponent } from './transaction-form/transaction-form.component';
 import { PersonFormComponent } from './person-form/person-form.component';
 import { MessageComponent } from './message/message.component';
+import { TransactionTableComponent } from './transaction-table/transaction-table.component';
 
 
 
@@ -33,7 +34,8 @@ import { MessageComponent } from './message/message.component';
     PersonSearchComponent,
     TransactionFormComponent,
     PersonFormComponent,
-    MessageComponent
+    MessageComponent,
+    TransactionTableComponent
   ],
   imports: [
     BrowserModule,
