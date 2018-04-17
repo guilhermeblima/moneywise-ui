@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import { SharedModule } from './../shared/shared.module';
+
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
@@ -20,6 +22,8 @@ import { TransactionTableComponent } from './transaction-table/transaction-table
   imports: [
     CommonModule,
     FormsModule,
+
+    SharedModule,
 
     InputTextModule,
     ButtonModule,

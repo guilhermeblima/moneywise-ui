@@ -13,8 +13,8 @@
         <p-calendar dateFormat="dd/mm/yy" [showIcon]=true required name="paymentDue" 
           ngModel #paymentDue="ngModel"></p-calendar>
 
-        <!--<app-message [control]="paymentDue" error="required" 
-          message="Insert when the payment is due"></app-message>-->
+        <app-message [control]="paymentDue" error="required" 
+          message="Insert when the payment is due"></app-message>
       </div>
 
       <div class="ui-g-3 ui-sm-6 ui-fluid">
@@ -22,8 +22,8 @@
         <p-calendar dateFormat="dd/mm/yy" [showIcon]=true name="paymentDate" 
           ngModel #paymentDate="ngModel" required></p-calendar>
 
-        <!--<app-message [control]="paymentDate" error="required" 
-          message="Insert when the payment was done"></app-message>-->
+        <app-message [control]="paymentDate" error="required" 
+          message="Insert when the payment was done"></app-message>
       </div>
 
       <div class="ui-g-9 ui-sm-12 ui-fluid">
@@ -31,18 +31,18 @@
         <input type="text" pInputText name="title" #title="ngModel"
           ngModel required minlength="5">
 
-        <!--<app-message [control]="title" error="required"
+        <app-message [control]="title" error="required"
           message="A title is required"></app-message>
         <app-message [control]="title" error="minlength"
-          message="Minimum of {{title.errors?.minlength?.requiredLength}} letters required"></app-message> --> 
+          message="Minimum of {{title.errors?.minlength?.requiredLength}} letters required"></app-message>  
       </div>
 
       <div class="ui-g-3 ui-sm-12 ui-fluid">
         <label>Total</label>
         <input currencyMask pInputText name="total" [options]="{prefix: '', allowNegative: false}"
            ngModel #total="ngModel" required>
-        <!--<app-message [control]="total" error="required"
-        message="Insert the total"></app-message>   -->
+        <app-message [control]="total" error="required"
+        message="Insert the total"></app-message>   
       </div>
 
       <div class="ui-g-6 ui-sm-12 ui-fluid">
