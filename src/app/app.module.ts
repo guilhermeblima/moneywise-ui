@@ -3,24 +3,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 import { TransactionModule } from './transaction/transaction.module';
 import { PersonModule } from './person/person.module';
+import { CoreModule } from './core/core.module';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavBarComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
 
     TransactionModule,
-    PersonModule
+    PersonModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
