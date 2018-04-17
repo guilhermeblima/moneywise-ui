@@ -16,39 +16,37 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 
 import { AppComponent } from './app.component';
-import { TransactionSearchComponent } from './transaction-search/transaction-search.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PersonSearchComponent } from './person-search/person-search.component';
-import { TransactionFormComponent } from './transaction-form/transaction-form.component';
 import { PersonFormComponent } from './person-form/person-form.component';
 import { MessageComponent } from './message/message.component';
-import { TransactionTableComponent } from './transaction-table/transaction-table.component';
 import { PersonTableComponent } from './person-table/person-table.component';
+import { TransactionModule } from './transaction/transaction.module';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TransactionSearchComponent,
     NavBarComponent,
     PersonSearchComponent,
-    TransactionFormComponent,
     PersonFormComponent,
     MessageComponent,
-    TransactionTableComponent,
     PersonTableComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+
+    TransactionModule,
+
     InputTextModule,
     ButtonModule,
     TableModule,
     TooltipModule,
     InputTextareaModule,
     CalendarModule,
-    FormsModule,
     SelectButtonModule,
     DropdownModule,
     CurrencyMaskModule,
