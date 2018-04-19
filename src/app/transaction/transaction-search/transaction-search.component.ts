@@ -1,3 +1,4 @@
+import { TransactionService } from './../transaction.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,17 +6,18 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './transaction-search.component.html',
   styleUrls: ['./transaction-search.component.css']
 })
-export class TransactionSearchComponent {
+export class TransactionSearchComponent implements OnInit {
 
-  transactions = [
-    {
-      person:'Gandalf Gray', title: 'Groceries', paymentDue: new Date(2017,4,23), paymentDate: new Date(2017,4,23), total: 1104.34, type: 'DEPOSIT'
-    },
-    {
-      person:'Bilbo Baggins', title: 'Dark weed', paymentDue:  new Date(2018,3,6), paymentDate: new Date(2017,4,23), total: 28.99, type: 'WITHDRAWAL'
-    },
-    {
-      person:'Frodo Baggins', title: 'Haircut', paymentDue:  new Date(2018,3,21), paymentDate: new Date(2017,4,23), total: 45.00, type: 'DEPOSIT'
-    },
-  ];
+  transactions = [];
+
+  constructor(private transactionService: TransactionService){}
+
+  ngOnInit() {
+    this.findAllSummary();
+  }
+
+  findAllSummary(){
+    this.transactionService.findAllSummary()
+      .subscribe(data => this.transactions = data.content);
+  }
 }
