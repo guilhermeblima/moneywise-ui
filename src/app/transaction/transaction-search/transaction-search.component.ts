@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class TransactionSearchComponent implements OnInit {
 
   transactions = [];
+  title: string;
 
   constructor(private transactionService: TransactionService){}
 
@@ -17,7 +18,7 @@ export class TransactionSearchComponent implements OnInit {
   }
 
   findAllSummary(){
-    this.transactionService.findAllSummary()
+    this.transactionService.findAllSummary({title: this.title })
       .subscribe(data => this.transactions = data.content);
   }
 }
