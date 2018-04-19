@@ -24,8 +24,10 @@ export class TransactionService {
   findAllSummary(filter:TransactionFilter):Observable<any>{
     if(filter.title){
       this.httpOptions.params = this.httpOptions.params.set('title',filter.title);
+    }else{
+      this.httpOptions.params = this.httpOptions.params.set('title',"");
     }
-    
+
     console.log(this.httpOptions)
     return this.http.get(`${this.serviceUrl}?summary`, this.httpOptions);
   }
