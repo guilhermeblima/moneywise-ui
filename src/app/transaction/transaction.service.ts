@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import * as moment from 'moment';
 
 export interface TransactionFilter{
-  title: string;
+  title: string,
+  dateTo: Date,
+  dateFrom: Date
 }
 
 @Injectable()
@@ -15,21 +18,24 @@ export class TransactionService {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
       'Authorization': 'Basic YWRtaW5AbW9uZXl3aXNlLmNvbTphZG1pbg=='
-    }),
-    params: new HttpParams()
+    })
   };
 
   constructor(private http: HttpClient) { }
 
   findAllSummary(filter:TransactionFilter):Observable<any>{
+    let params = '';
     if(filter.title){
-      this.httpOptions.params = this.httpOptions.params.set('title',filter.title);
-    }else{
-      this.httpOptions.params = this.httpOptions.params.set('title',"");
+      params = `&title=${filter.title}`;
     }
-
-    console.log(this.httpOptions)
-    return this.http.get(`${this.serviceUrl}?summary`, this.httpOptions);
+    if(filter.dateFrom){
+      params = `&dateFrom=${moment(filter.dateFrom).format('YYYY-MM-DD')}`;
+    }
+    if(filter.dateTo){
+      params = `&dateTo=${moment(filter.dateTo).format('YYYY-MM-DD')}`;
+    }
+    
+    return this.http.get(`${this.serviceUrl}?summary${params}`, this.httpOptions);
   }
 
 }

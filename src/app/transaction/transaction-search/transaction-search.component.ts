@@ -1,4 +1,4 @@
-import { TransactionService } from './../transaction.service';
+import { TransactionService, TransactionFilter } from './../transaction.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,6 +10,8 @@ export class TransactionSearchComponent implements OnInit {
 
   transactions = [];
   title: string;
+  dateFrom: Date;
+  dateTo: Date;
 
   constructor(private transactionService: TransactionService){}
 
@@ -18,7 +20,12 @@ export class TransactionSearchComponent implements OnInit {
   }
 
   findAllSummary(){
-    this.transactionService.findAllSummary({title: this.title })
+    const filter: TransactionFilter = {
+      title: this.title,
+      dateFrom: this.dateFrom,
+      dateTo: this.dateTo
+    }
+    this.transactionService.findAllSummary(filter)
       .subscribe(data => this.transactions = data.content);
   }
 }
