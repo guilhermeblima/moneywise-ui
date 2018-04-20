@@ -3,10 +3,12 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import * as moment from 'moment';
 
-export interface TransactionFilter{
-  title: string,
-  dateTo: Date,
-  dateFrom: Date
+export class TransactionFilter{
+  title: string;
+  dateTo: Date;
+  dateFrom: Date;
+  page = 0;
+  pageSize = 1;
 }
 
 @Injectable()
@@ -24,7 +26,7 @@ export class TransactionService {
   constructor(private http: HttpClient) { }
 
   findAllSummary(filter:TransactionFilter):Observable<any>{
-    let params = '';
+    let params = `&page=${filter.page}&size=${filter.pageSize}`;
     if(filter.title){
       params = `&title=${filter.title}`;
     }

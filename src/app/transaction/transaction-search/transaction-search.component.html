@@ -7,17 +7,17 @@
           
           <div class="ui-g-12 ui-fluid">
               <label>Title</label>
-              <input type="text" pInputText name="title" [(ngModel)]="title">
+              <input type="text" pInputText name="title" [(ngModel)]="filter.title">
           </div>
         
           <div class="ui-g-12">
             <label style="display: block;">Payment Due</label>
-            <p-calendar dateFormat="dd/mm/yy" [showIcon]=true name="dateFrom" 
+            <p-calendar dateFormat="dd/mm/yy" [showIcon]=true name="filter.dateFrom" 
               [(ngModel)]="dateFrom"></p-calendar>
             
             <label style="margin: 0 21px 0 55px">to</label>
 
-            <p-calendar dateFormat="dd/mm/yy" [showIcon]=true name="dateTo" 
+            <p-calendar dateFormat="dd/mm/yy" [showIcon]=true name="filter.dateTo" 
               [(ngModel)]="dateTo"></p-calendar>
           </div>
         
