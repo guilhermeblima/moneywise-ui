@@ -8,7 +8,7 @@ export class TransactionFilter{
   dateTo: Date;
   dateFrom: Date;
   page = 0;
-  pageSize = 1;
+  pageSize = 3;
 }
 
 @Injectable()

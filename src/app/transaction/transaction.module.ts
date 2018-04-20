@@ -16,7 +16,6 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 import { TransactionSearchComponent } from './transaction-search/transaction-search.component';
 import { TransactionFormComponent } from './transaction-form/transaction-form.component';
-import { TransactionTableComponent } from './transaction-table/transaction-table.component';
 
 @NgModule({
   imports: [
@@ -38,8 +37,7 @@ import { TransactionTableComponent } from './transaction-table/transaction-table
   ],
   declarations: [
     TransactionFormComponent,
-    TransactionSearchComponent,
-    TransactionTableComponent
+    TransactionSearchComponent
   ], 
   exports: [
     TransactionFormComponent,
