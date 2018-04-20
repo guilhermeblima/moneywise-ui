@@ -23,7 +23,7 @@ export class PersonService {
     })
   }
 
-  findAllSummary(filter: PersonFilter) {
+  findByFilterSummary(filter: PersonFilter) {
     let params = `&page=${filter.page}&size=${filter.pageSize}`;
     if(filter.name){
       params = `&name=${filter.name}`;
@@ -31,8 +31,8 @@ export class PersonService {
     return this.http.get<any>(`${this.urlResource}?summary${params}`, this.httpOptions);
   }
 
-  findAll() :Observable<any>{
-    return this.http.get(this.urlResource, this.httpOptions);
+  findAll(){
+    return this.http.get<any>(`${this.urlResource}`, this.httpOptions);
   }
 
 }

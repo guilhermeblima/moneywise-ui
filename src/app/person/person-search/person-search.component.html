@@ -1,4 +1,5 @@
 <div class="container">
+  <form autocomplete="off" (ngSubmit)="findByFilterSummary()">
     <div class="ui-g">
         <div class="ui-g-12"> 
             <h1>Person</h1>
@@ -6,7 +7,7 @@
         
         <div class="ui-g-12 ui-fluid">
             <label>Name</label>
-            <input type="text" pInputText>
+            <input type="text" pInputText name="name" [(ngModel)]="filter.name">
         </div>
            
         <div class="ui-g-12">
@@ -16,7 +17,9 @@
 
       <div class="ui-g">
           <div class="ui-g-12">
-              <p-table [value]="persons" [paginator]="true" [rows]="2" [responsive]="true">
+              <p-table [value]="persons" [paginator]="true" [rows]="filter.pageSize" 
+                [responsive]="true" [lazy]="true" [totalRecords]="totalElements"
+                (onLazyLoad)="onPageChange($event)" >
                   <ng-template pTemplate="header">
                     <tr>
                       <th>Name</th>
@@ -47,4 +50,5 @@
       
       
         </div>
+  </form>
 </div>

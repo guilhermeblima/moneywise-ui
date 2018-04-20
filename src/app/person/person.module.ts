@@ -12,7 +12,6 @@ import { InputMaskModule } from 'primeng/inputmask';
 
 import { PersonFormComponent } from './person-form/person-form.component';
 import { PersonSearchComponent } from './person-search/person-search.component';
-import { PersonTableComponent } from './person-table/person-table.component';
 
 @NgModule({
   imports: [
@@ -29,8 +28,7 @@ import { PersonTableComponent } from './person-table/person-table.component';
   ],
   declarations: [
     PersonFormComponent,
-    PersonSearchComponent,
-    PersonTableComponent
+    PersonSearchComponent
   ],
   exports: [
     PersonFormComponent,
