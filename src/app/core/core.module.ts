@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MessageService } from 'primeng/components/common/messageservice';
+import { CategoryService } from '../category/category.service';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { MessageService } from 'primeng/components/common/messageservice';
   providers: [
     TransactionService,
     PersonService,
+    CategoryService,
     MessageService,
     ConfirmationService,
     ErrorHandlerService

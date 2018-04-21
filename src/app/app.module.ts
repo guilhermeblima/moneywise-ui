@@ -16,6 +16,7 @@ import { PersonService } from './person/person.service';
 
 import { MessageService } from 'primeng/components/common/messageservice';
 import { ConfirmationService } from 'primeng/api';
+import { CategoryModule } from './category/category.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ConfirmationService } from 'primeng/api';
 
     TransactionModule,
     PersonModule,
+    CategoryModule,
     CoreModule
   ],
   bootstrap: [AppComponent]
