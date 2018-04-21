@@ -19,7 +19,7 @@
           <div class="ui-g-12">
               <p-table [value]="persons" [paginator]="true" [rows]="filter.pageSize" 
                 [responsive]="true" [lazy]="true" [totalRecords]="totalElements"
-                (onLazyLoad)="onPageChange($event)" >
+                (onLazyLoad)="onPageChange($event)" #table>
                   <ng-template pTemplate="header">
                     <tr>
                       <th>Name</th>

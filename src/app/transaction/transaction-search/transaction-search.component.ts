@@ -1,6 +1,8 @@
-import { TransactionService, TransactionFilter } from './../transaction.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { LazyLoadEvent } from 'primeng/components/common/lazyloadevent';
+
+import { TransactionService, TransactionFilter } from './../transaction.service';
 
 @Component({
   selector: 'app-transaction-search',
@@ -12,6 +14,7 @@ export class TransactionSearchComponent implements OnInit {
   totalElements = 0;
   filter = new TransactionFilter();
   transactions = [];
+  @ViewChild('table') grid;
 
   constructor(private transactionService: TransactionService){}
 
@@ -31,5 +34,13 @@ export class TransactionSearchComponent implements OnInit {
   onPageChange(event: LazyLoadEvent){
     const page = event.first / event.rows;
     this.findAllSummary(page);
+  }
+
+  delete(transaction : any){
+    this.transactionService.delete(transaction.id)
+      .subscribe(() => {
+        this.grid.first = 0;
+        --this.totalElements;
+      })
   }
 }

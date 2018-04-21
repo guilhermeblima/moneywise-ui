@@ -8,7 +8,7 @@ export class TransactionFilter{
   dateTo: Date;
   dateFrom: Date;
   page = 0;
-  pageSize = 3;
+  pageSize = 1;
 }
 
 @Injectable()
@@ -38,6 +38,10 @@ export class TransactionService {
     }
     
     return this.http.get(`${this.serviceUrl}?summary${params}`, this.httpOptions);
+  }
+
+  delete(id: number): Observable<{}>{
+    return this.http.delete(`${this.serviceUrl}/${id}`, this.httpOptions);
   }
 
 }
