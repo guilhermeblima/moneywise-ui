@@ -12,8 +12,10 @@ import { CoreModule } from './core/core.module';
 
 import { TransactionService } from './transaction/transaction.service';
 
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
-
+import { MessageService } from 'primeng/components/common/messageservice';
+import { ConfirmationService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -26,11 +28,14 @@ import { TransactionService } from './transaction/transaction.service';
 
     TransactionModule,
     PersonModule,
-    CoreModule
+    CoreModule,
+    ConfirmDialogModule
   ],
   providers: [
     TransactionService,
-    PersonService
+    PersonService,
+    MessageService,
+    ConfirmationService
   ],
   bootstrap: [AppComponent]
 })
