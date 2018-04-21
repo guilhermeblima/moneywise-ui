@@ -1,6 +1,8 @@
+import { ErrorHandlerService } from './../core/error-handler.service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
 import * as moment from 'moment';
 
 export class TransactionFilter{
@@ -23,7 +25,10 @@ export class TransactionService {
     })
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private errorHandlerService: ErrorHandlerService
+    ) { }
 
   findAllSummary(filter:TransactionFilter):Observable<any>{
     let params = `&page=${filter.page}&size=${filter.pageSize}`;
@@ -37,11 +42,13 @@ export class TransactionService {
       params = `&dateTo=${moment(filter.dateTo).format('YYYY-MM-DD')}`;
     }
     
-    return this.http.get(`${this.serviceUrl}?summary${params}`, this.httpOptions);
+    return this.http.get(`${this.serviceUrl}?summary${params}`, this.httpOptions)
+          .catch(error => this.errorHandlerService.handler(error));
   }
 
   delete(id: number): Observable<{}>{
-    return this.http.delete(`${this.serviceUrl}/${id}`, this.httpOptions);
+    return this.http.delete(`${this.serviceUrl}/${id}`, this.httpOptions)
+    .catch(error => this.errorHandlerService.handler(error))
   }
 
 }

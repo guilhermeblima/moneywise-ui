@@ -12,9 +12,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
-import { GrowlModule } from 'primeng/growl';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 import { TransactionSearchComponent } from './transaction-search/transaction-search.component';
 import { TransactionFormComponent } from './transaction-form/transaction-form.component';
@@ -34,8 +32,6 @@ import { TransactionFormComponent } from './transaction-form/transaction-form.co
     CalendarModule,
     SelectButtonModule,
     DropdownModule,
-    GrowlModule,
-    ConfirmDialogModule,
 
     CurrencyMaskModule,
   ],

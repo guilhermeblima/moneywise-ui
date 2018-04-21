@@ -1,4 +1,5 @@
-import { PersonService } from './person/person.service';
+
+
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -11,8 +12,7 @@ import { PersonModule } from './person/person.module';
 import { CoreModule } from './core/core.module';
 
 import { TransactionService } from './transaction/transaction.service';
-
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { PersonService } from './person/person.service';
 
 import { MessageService } from 'primeng/components/common/messageservice';
 import { ConfirmationService } from 'primeng/api';
@@ -28,14 +28,7 @@ import { ConfirmationService } from 'primeng/api';
 
     TransactionModule,
     PersonModule,
-    CoreModule,
-    ConfirmDialogModule
-  ],
-  providers: [
-    TransactionService,
-    PersonService,
-    MessageService,
-    ConfirmationService
+    CoreModule
   ],
   bootstrap: [AppComponent]
 })

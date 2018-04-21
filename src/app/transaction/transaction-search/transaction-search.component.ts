@@ -1,3 +1,5 @@
+import { ErrorHandlerService } from './../../core/error-handler.service';
+import { catchError } from 'rxjs/operators';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { LazyLoadEvent } from 'primeng/components/common/lazyloadevent';
@@ -21,6 +23,7 @@ export class TransactionSearchComponent implements OnInit {
   constructor(
     private transactionService: TransactionService,
     private messageService: MessageService,
+    private errorHandlerService: ErrorHandlerService,
     private confirmationService: ConfirmationService
   ){}
 

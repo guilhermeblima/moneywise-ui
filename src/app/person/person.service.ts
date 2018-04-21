@@ -1,8 +1,10 @@
+import { ErrorHandlerService } from './../core/error-handler.service';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
 
 export class PersonFilter{
   name: string;
@@ -13,7 +15,10 @@ export class PersonFilter{
 @Injectable()
 export class PersonService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private errorHandlerService: ErrorHandlerService
+  ) { }
 
   urlResource = 'http://localhost:8080/persons';
   httpOptions = {
@@ -33,6 +38,16 @@ export class PersonService {
 
   findAll(){
     return this.http.get<any>(`${this.urlResource}`, this.httpOptions);
+  }
+
+  delete(id: number){
+    return this.http.delete(`${this.urlResource}/${id}`, this.httpOptions)
+            .catch(error => this.errorHandlerService.handler(error))
+  }
+
+  changeStatus(id:number, status: boolean ){
+    return this.http.put(`${this.urlResource}/${id}/status`, status, this.httpOptions)
+            .catch(error => this.errorHandlerService.handler(error));
   }
 
 }

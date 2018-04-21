@@ -35,10 +35,11 @@
                       <td>{{person.city}}</td>
                       <td>{{person.suburb}}</td>
                       <td>
-                        <a href="#" pTooltip="{{person.active ? 'Inactivate' : 'Activate'}}">{{person.active ? 'Active' : 'Inactive'}}</a></td>
+                        <a (click)="changeStatus(person)" style="cursor: pointer" pTooltip="{{person.active ? 'Inactivate' : 'Activate'}}">{{person.active ? 'Active' : 'Inactive'}}</a></td>
                       <td>
                         <button pButton icon="fa-pencil" pTooltip="Edit" tooltipPosition="top"></button>
-                        <button pButton icon="fa-trash" pTooltip="Remove" tooltipPosition="top"></button>
+                        <button pButton icon="fa-trash" pTooltip="Remove" 
+                          (click)="delete(person)" tooltipPosition="top"></button>
                       </td>
                     </tr>
                   </ng-template>
