@@ -3,11 +3,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { LazyLoadEvent } from 'primeng/components/common/lazyloadevent';
 
 import { TransactionService, TransactionFilter } from './../transaction.service';
+import { MessageService } from 'primeng/components/common/messageservice';
 
 @Component({
   selector: 'app-transaction-search',
   templateUrl: './transaction-search.component.html',
-  styleUrls: ['./transaction-search.component.css']
+  styleUrls: ['./transaction-search.component.css'],
+  providers: [MessageService]
 })
 export class TransactionSearchComponent implements OnInit {
 
@@ -16,7 +18,10 @@ export class TransactionSearchComponent implements OnInit {
   transactions = [];
   @ViewChild('table') grid;
 
-  constructor(private transactionService: TransactionService){}
+  constructor(
+    private transactionService: TransactionService,
+    private messageService: MessageService
+  ){}
 
   ngOnInit() {
    // this.findAllSummary(); -- not necessary as LazyLoad event will retrive data when page loads
@@ -39,8 +44,13 @@ export class TransactionSearchComponent implements OnInit {
   delete(transaction : any){
     this.transactionService.delete(transaction.id)
       .subscribe(() => {
-        this.grid.first = 0;
+        if(this.grid.first === 0){
+          this.findAllSummary();
+        }else{
+          this.grid.first = 0;
+        }
         --this.totalElements;
+        this.messageService.add({severity: 'success', summary: 'Success', detail: 'Transaction has been deleted'})
       })
   }
 }
