@@ -37,7 +37,7 @@ export class PersonService {
   }
 
   findAll(){
-    return this.http.get<any>(`${this.urlResource}`, this.httpOptions);
+    return this.http.get<any>(`${this.urlResource}/all`, this.httpOptions);
   }
 
   delete(id: number){

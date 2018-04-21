@@ -1,3 +1,4 @@
+import { PersonService } from './../../person/person.service';
 import { Component, OnInit } from '@angular/core';
 
 import {SelectItem} from 'primeng/api';
@@ -12,7 +13,8 @@ import { CategoryService } from '../../category/category.service';
 export class TransactionFormComponent implements OnInit{
 
   constructor(
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private personService: PersonService
   ){}
 
   transactionTypes: SelectItem[];
@@ -23,12 +25,7 @@ export class TransactionFormComponent implements OnInit{
 
   categories = [];
 
-  persons = [
-    {label: 'Frodo Baggins', value: 1},
-    {label: 'Bilbo Baggins', value: 2},
-    {label: 'Gandalf Grey', value: 3},
-    {label: 'Legolas Greenleaf', value: 4}
-  ];
+  persons = [];
 
   ngOnInit(){
     this.transactionTypes = [
@@ -36,12 +33,20 @@ export class TransactionFormComponent implements OnInit{
       {label: 'Withdrawal', value: 'WITHDRAWAL'}
     ]
     this.loadCategories();
+    this.loadPersons();
   }
 
   loadCategories(){
     this.categoryService.findAll()
     .subscribe(response => {
       this.categories = response.map(c =>({label: c.value, value: c.id}))
+    })
+  }
+
+  loadPersons(){
+    this.personService.findAll()
+    .subscribe(response => {
+      this.persons = response.map(p => ({label: p.name, value: p.id}))
     })
   }
 
