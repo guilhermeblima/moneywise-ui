@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import * as moment from 'moment';
+import { Transaction } from '../core/model';
 
 export class TransactionFilter{
   title: string;
@@ -49,6 +50,11 @@ export class TransactionService {
   delete(id: number): Observable<{}>{
     return this.http.delete(`${this.serviceUrl}/${id}`, this.httpOptions)
     .catch(error => this.errorHandlerService.handler(error))
+  }
+
+  save(transaction: Transaction){
+    return this.http.post(this.serviceUrl, transaction, this.httpOptions)
+            .catch(error => this.errorHandlerService.handler(error));
   }
 
 }
