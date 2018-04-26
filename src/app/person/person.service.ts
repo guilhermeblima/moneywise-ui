@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
+import { Person } from '../core/model';
 
 export class PersonFilter{
   name: string;
@@ -47,6 +48,11 @@ export class PersonService {
 
   changeStatus(id:number, status: boolean ){
     return this.http.put(`${this.urlResource}/${id}/status`, status, this.httpOptions)
+            .catch(error => this.errorHandlerService.handler(error));
+  }
+
+  save(person: Person){
+    return this.http.post(this.urlResource, person, this.httpOptions)
             .catch(error => this.errorHandlerService.handler(error));
   }
 

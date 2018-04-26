@@ -1,5 +1,5 @@
 <div class="container">
-  <form autocomplete="off" #form="ngForm">
+  <form autocomplete="off" #form="ngForm" (ngSubmit)="save(form)">
     <div ui-g>
       <div class="ui-g-12">
         <h1>New Person</h1>
@@ -7,42 +7,47 @@
 
       <div class="ui-g-12 ui-fluid">
         <label>Name</label>
-        <input pInputText type="text" required name="name" ngModel #name="ngModel">
+        <input pInputText type="text" required name="name" [(ngModel)]="person.name" #name="ngModel">
         <app-message [control]="name" error="required" 
           message="Insert the name"></app-message>
       </div>
 
       <div class="ui-g-2 ui-sm-12 ui-fluid">
         <label>Number</label>
-        <input pInputText type="text" required name="number" ngModel #number="ngModel" maxlength="10">
+        <input pInputText type="text" required name="number" 
+          [(ngModel)]="person.address.number" #number="ngModel" maxlength="10">
         <app-message [control]="number" error="required" 
           message="Insert the number"></app-message>
       </div>
 
       <div class="ui-g-8 ui-sm-12 ui-fluid">
         <label>Street</label>
-        <input pInputText type="text" required name="street" ngModel #street="ngModel" maxlength="30">
+        <input pInputText type="text" required name="street"
+        [(ngModel)]="person.address.street" #street="ngModel" maxlength="30">
         <app-message [control]="street" error="required"  
           message="Insert the street name"></app-message>
       </div>
 
       <div class="ui-g-2 ui-sm-12 ui-fluid">
         <label>Zip Code</label>
-        <p-inputMask mask="9999" [maxlength]="4" required name="zipcode" ngModel #zipcode="ngModel"></p-inputMask>
+        <p-inputMask mask="9999" [maxlength]="4" required name="zipcode"
+        [(ngModel)]="person.address.zipCode" #zipcode="ngModel"></p-inputMask>
         <app-message [control]="zipcode" error="required" 
           message="Insert the address zip code"></app-message>
       </div>
 
       <div class="ui-g-6 ui-sm-12 ui-fluid">
         <label>Suburb</label>
-        <input pInputText type="text" required name="suburb" ngModel #suburb="ngModel" maxlength="20">
+        <input pInputText type="text" required name="suburb"
+        [(ngModel)]="person.address.suburb" #suburb="ngModel" maxlength="20">
         <app-message [control]="suburb" error="required" 
           message="Insert the suburb"></app-message>
       </div>
 
       <div class="ui-g-6 ui-sm-12 ui-fluid">
         <label>City</label>
-        <input pInputText type="text" required name="city" ngModel #city="ngModel" maxlength="20">
+        <input pInputText type="text" required name="city"
+        [(ngModel)]="person.address.city" #city="ngModel" maxlength="20">
         <app-message [control]="city" error="required" 
           message="Insert the city"></app-message>
       </div>

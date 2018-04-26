@@ -1,5 +1,16 @@
+export class Address{
+    number:string;
+    street:string;
+    zipCode:string;
+    suburb:string;
+    city:string;
+}
+
 export class Person{
     id: number;
+    name: string;
+    active = true;
+    address = new Address();
 }
 
 export class Category{
